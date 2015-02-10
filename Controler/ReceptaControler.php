@@ -4,6 +4,7 @@ require_once 'controler/BD.php';
 class ReceptaControler extends BD {
 	
 	public function save($recepta){
+		//github mamones
 		$exito = false;
 		try {
 			$this->connectBD();
