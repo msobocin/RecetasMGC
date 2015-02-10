@@ -1,5 +1,5 @@
 <?php
-//hay que rellenar
+// FALTA CODIGO!!!
 
 function cabecera() {
 	
