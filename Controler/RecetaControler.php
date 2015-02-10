@@ -5,10 +5,12 @@ class ReceptaControler extends BD {
 		$exito = false;
 		try {
 			$this->connectBD ();
-			$sentencia = $this->_link->prepare ( "INSERT INTO `receptasmcg`.`platos` (`nombre`,`preparacion`,`tiempo`) VALUES (:_nombre, :_preparacion, :_tiempo)" );
+			$sentencia = $this->_link->prepare ( "INSERT INTO `receptasmcg`.`platos` (`nombre`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_preparacion, :_tiempo,:_personas)" );
 			$sentencia->bindParam ( ":_nombre", $recepta->getNombre () );
-			$sentencia->bindParam ( ":_preparacion", $recepta->__get ( '_country' ) );
-			$sentencia->bindParam ( ":_tiempo", $recepta->__get ( '_dob' ) );
+			$sentencia->bindParam ( ":_preparacion", $recepta->getPreparacion() );
+			$sentencia->bindParam ( ":_tiempo", $recepta->getTiempo() );
+			$sentencia->bindParam(":_personas", $recepta->getPersonas());
+			$lastIdPlato = $this->_link->lastInsertId();
 			if ($sentencia->execute ()) {
 				$exito = true;
 			}
