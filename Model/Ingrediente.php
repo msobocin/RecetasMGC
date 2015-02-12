@@ -6,6 +6,13 @@ class Ingrediente {
 	private $_unidad;
 	private $_cantidad;
 	
+	public function setAll($id=0,$nombre="",$unidad="",$cantidad="") {
+		$this->_id=$id;
+		$this->_nombre=$nombre;
+		$this->_unidad=$unidad;
+		$this->_cantidad=$cantidad;
+	}
+	
 	public function getId(){
 		return $this->_id;
 	}

@@ -7,6 +7,15 @@ class Receta {
 	private $_tiempo;
 	private $_personas;
 	
+	public function setAll($id=0,$nombre="",$ingredinetes=array(),$preparacion="",$tiempo=0,$personas=0){
+		$this->_id=$id;
+		$this->_nombre=$nombre;
+		$this->_ingredientes=$ingredinetes;
+		$this->_preparacion=$preparacion;
+		$this->_tiempo=$tiempo;
+		$this->_personas=$personas;
+	}
+	
 	public function getId() {
 		return $this->_id;
 	}
