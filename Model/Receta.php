@@ -54,7 +54,7 @@ class Receta {
 	public function getPersonas() {
 		return $this->_personas;
 	}
-	public function setId($personas) {
+	public function setPersonas($personas) {
 		$this->_personas = $personas;
 		return $this;
 	}

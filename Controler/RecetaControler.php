@@ -5,21 +5,23 @@ class ReceptaControler extends BD {
 		$exito = false;
 		try {
 			$this->connectBD ();
-			$sentencia = $this->_link->prepare ( "INSERT INTO `receptasmcg`.`platos` (`nombre`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_preparacion, :_tiempo,:_personas)" );
+			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_preparacion, :_tiempo,:_personas)" );
 			$sentencia->bindParam ( ":_nombre", $recepta->getNombre () );
 			$sentencia->bindParam ( ":_preparacion", $recepta->getPreparacion() );
 			$sentencia->bindParam ( ":_tiempo", $recepta->getTiempo() );
 			$sentencia->bindParam(":_personas", $recepta->getPersonas());
-			$lastIdPlato = $this->_link->lastInsertId();
+			
 			if ($sentencia->execute ()) {
 				$exito = true;
 			}
+			$lastIdPlato = $this->_link->lastInsertId();
 			
-			$sentencia = $this->_link->prepare( "INSERT INTO `receptasmcg`.`recetas` (`id_plato`,`id_ingredientes`,`cantidad`) VALUES (:_id_plato, :_id_ingredientes, :_cantidad)");
 			foreach ($recepta->getIngredientes() as $ingrediente) {
+				$sentencia = $this->_link->prepare( "INSERT INTO `recetasmgc`.`recetas` (`id_plato`,`id_ingredientes`,`cantidad`) VALUES (:_id_plato, :_id_ingredientes, :_cantidad)");
 				$sentencia->bindParam ( ":_id_plato", $lastIdPlato );
 				$sentencia->bindParam ( ":_id_ingredientes", $ingrediente->getId() );
 				$sentencia->bindParam ( ":_cantidad", $ingrediente->getCantidad() );
+				echo "cantidad: ".$ingrediente->getCantidad();
 				
 				if ($sentencia->execute ()) {
 					$exito = true;
@@ -29,6 +31,7 @@ class ReceptaControler extends BD {
 			
 			$this->disconnectBD ();
 		} catch ( PDOException $e ) {
+			$exito=false;
 			throw $e;
 		}
 		
