@@ -1,0 +1,44 @@
+<?php
+
+class Ingrediente {
+	private $_id;
+	private $_nombre;
+	private $_unidad;
+	private $_cantidad;
+	
+	public function getId(){
+		return $this->_id;
+	}
+	
+	public function setId($id){
+		$this->_id = $id;
+	}
+	
+	public function getNombre(){
+		return $this->_nombre;
+	}
+	
+	public function setNombre($nombre){
+		$this->_nombre = $nombre;
+	}
+	
+	public function getUnidad(){
+		return $this->_unidad;
+	}
+	
+	public function setUnidad($unidad){
+		$this->_unidad = $unidad;
+	}
+	
+	public function getCantidad(){
+		return $this->_cantidad;
+	}
+	
+	public function setCantidad($cantidad){
+		$this->_cantidad = $cantidad;
+	}
+	
+	
+}
+
+?>
