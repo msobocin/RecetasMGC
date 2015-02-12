@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author Michal
+ * @author Grace
+ * @author Carlo
+ */
 
 class Ingrediente {
 	private $_id;

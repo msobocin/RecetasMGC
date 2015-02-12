@@ -18,3 +18,8 @@ Librerias externas que utilizamos son:
 -fpdf para generar los PDF
 -amcharts para generar los grafos/charts
 
+#####AUTHORES#####
+Michal
+Grace
+Carlo
+

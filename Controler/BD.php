@@ -1,6 +1,8 @@
 <?php
 /**
- * @author Michal Sobocisnk
+ * @author Michal
+ * @author Grace
+ * @author Carlo
  */
 
 class BD {

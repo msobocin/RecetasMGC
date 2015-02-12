@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author Michal
+ * @author Grace
+ * @author Carlo
+ */
+
 require_once 'model/Book.php';
 
 require_once 'model/Author.php';

@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @author Michal
+ * @author Grace
+ * @author Carlo
+ */
+
 require_once 'controler/BD.php';
 class ReceptaControler extends BD {
 	public function save($recepta) {

@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author Michal
+ * @author Grace
+ * @author Carlo
+ */
+
 class Receta {
 	private $_id;
 	private $_nombre;
