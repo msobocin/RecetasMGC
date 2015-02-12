@@ -2,9 +2,11 @@
 class Receta {
 	private $_id;
 	private $_nombre;
-	private $_ingredientes;
+	private $_ingredientes=array();
 	private $_preparacion;
 	private $_tiempo;
+	private $_personas;
+	
 	public function getId() {
 		return $this->_id;
 	}
@@ -23,7 +25,7 @@ class Receta {
 		return $this->_ingredientes;
 	}
 	public function setIngredientes($ingredientes) {
-		$this->_ingredientes = $ingredientes;
+		array_push($this->_ingredientes, $ingredientes);
 		return $this;
 	}
 	public function getPreparacion() {
@@ -38,6 +40,13 @@ class Receta {
 	}
 	public function setTiempo($tiempo) {
 		$this->_tiempo = $tiempo;
+		return $this;
+	}
+	public function getPersonas() {
+		return $this->_personas;
+	}
+	public function setId($personas) {
+		$this->_personas = $personas;
 		return $this;
 	}
 }

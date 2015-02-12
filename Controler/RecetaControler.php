@@ -14,6 +14,19 @@ class ReceptaControler extends BD {
 			if ($sentencia->execute ()) {
 				$exito = true;
 			}
+			
+			$sentencia = $this->_link->prepare( "INSERT INTO `receptasmcg`.`recetas` (`id_plato`,`id_ingredientes`,`cantidad`) VALUES (:_id_plato, :_id_ingredientes, :_cantidad)");
+			foreach ($recepta->getIngredientes() as $ingrediente) {
+				$sentencia->bindParam ( ":_id_plato", $lastIdPlato );
+				$sentencia->bindParam ( ":_id_ingredientes", $ingrediente->getId() );
+				$sentencia->bindParam ( ":_cantidad", $ingrediente->getCantidad() );
+				
+				if ($sentencia->execute ()) {
+					$exito = true;
+				}
+			}
+			
+			
 			$this->disconnectBD ();
 		} catch ( PDOException $e ) {
 			throw $e;
