@@ -19,7 +19,7 @@ Librerias externas que utilizamos son:
 -amcharts para generar los grafos/charts
 
 #####AUTHORES#####
-Michal
-Grace
-Carlo
+Michal  
+Grace  
+Carlo  
 
