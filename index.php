@@ -26,6 +26,7 @@ require_once 'Model/Ingrediente.php';
 $recetaBD = new ReceptaControler();
 // $recetaBD->save($receta);
 $arrRecetas=$recetaBD->consultRecetaId(1);
+$recetaBD->consult();
 
 // foreach ($arrRecetas as $receta) {
 	echo $arrRecetas->getNombre();
