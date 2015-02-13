@@ -8,6 +8,7 @@
 
 require_once 'Controler/BD.php';
 require_once 'Model/Receta.php';
+require_once 'Model/Ingrediente.php';
 
 class ReceptaControler extends BD {
 	public function save($recepta) {
@@ -64,22 +65,28 @@ class ReceptaControler extends BD {
 		return $arrReceta;
 	}
 	
-	public function consultRecetaId() {
-		$arrReceta = array ();
+	public function consultRecetaId($id) {
+		$receta=null;
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _pesonas FROM `platos`" );
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `preparacion` as _preparacion, `tiempo` as _tiempo, `cuantas_personas` as _pesonas FROM `platos` where id=".$id );
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
-				
-			while ( $receta = $result->fetch () ) {
-				array_push ( $arrReceta, $receta);
+			$receta = $result->fetch ();
+			
+			$result = $this->_link->query ( "SELECT recetas.`id_ingredientes` as _id, recetas.`cantidad`as _cantidad, ingredientes.ingrediente as _ingrediente, ingredientes.unidad as _unidad FROM `recetas` inner join ingredientes on recetas.id_ingredientes = ingredientes.id WHERE recetas.id_plato = ".$id );
+			$result->setFetchMode ( PDO::FETCH_CLASS, 'Ingrediente' );
+			
+			$arrIngredientes = array();
+			while ( $ingrediente = $result->fetch () ) {
+				array_push ( $arrIngredientes, $ingrediente);
 			}
+			$receta->setIngredientes($arrIngredientes);
 				
 			$this->disconnectBD ();
 		} catch ( Exception $e ) {
 			throw $e;
 		}
-		return $arrReceta;
+		return $receta;
 	}
 }
 

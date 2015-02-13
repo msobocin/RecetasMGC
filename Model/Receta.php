@@ -49,7 +49,7 @@ class Receta {
 		return $this->_ingredientes;
 	}
 	public function setIngredientes($ingredientes) {
-		array_push($this->_ingredientes, $ingredientes);
+		$this->_ingredientes=$ingredientes;
 		return $this;
 	}
 	public function getPreparacion() {

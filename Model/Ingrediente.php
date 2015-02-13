@@ -7,7 +7,7 @@
 
 class Ingrediente {
 	private $_id;
-	private $_nombre;
+	private $_ingrediente;
 	private $_unidad;
 	private $_cantidad;
 	
@@ -26,12 +26,12 @@ class Ingrediente {
 		$this->_id = $id;
 	}
 	
-	public function getNombre(){
-		return $this->_nombre;
+	public function getIngrediente(){
+		return $this->_ingrediente;
 	}
 	
-	public function setNombre($nombre){
-		$this->_nombre = $nombre;
+	public function setIngrediente($ingrediente){
+		$this->_ingrediente = $ingrediente;
 	}
 	
 	public function getUnidad(){
