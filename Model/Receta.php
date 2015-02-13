@@ -8,20 +8,29 @@
 class Receta {
 	private $_id;
 	private $_nombre;
+	private $_descripcion;
 	private $_ingredientes=array();
 	private $_preparacion;
 	private $_tiempo;
 	private $_personas;
 	
-	public function setAll($id=0,$nombre="",$ingredinetes=array(),$preparacion="",$tiempo=0,$personas=0){
+	public function setAll($id=0,$nombre="",$descripcion="",$ingredinetes=array(),$preparacion="",$tiempo=0,$personas=0){
 		$this->_id=$id;
 		$this->_nombre=$nombre;
+		$this->_descripcion=$descripcion;
 		$this->_ingredientes=$ingredinetes;
 		$this->_preparacion=$preparacion;
 		$this->_tiempo=$tiempo;
 		$this->_personas=$personas;
 	}
 	
+	public function getDescripcion(){
+		return $this->_descripcion;
+	}
+	public function setDescripcion($descripcion){
+		$this->_descripcion=$descripcion;
+		return $this;
+	}
 	public function getId() {
 		return $this->_id;
 	}

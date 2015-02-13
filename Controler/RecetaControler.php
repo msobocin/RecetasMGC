@@ -7,12 +7,13 @@
  */
 
 require_once 'controler/BD.php';
+
 class ReceptaControler extends BD {
 	public function save($recepta) {
 		$exito = false;
 		try {
 			$this->connectBD ();
-			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_preparacion, :_tiempo,:_personas)" );
+			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`descripcion`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_descripcion, :_preparacion, :_tiempo,:_personas)" );
 			$sentencia->bindParam ( ":_nombre", $recepta->getNombre () );
 			$sentencia->bindParam ( ":_preparacion", $recepta->getPreparacion() );
 			$sentencia->bindParam ( ":_tiempo", $recepta->getTiempo() );
