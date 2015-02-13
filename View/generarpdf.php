@@ -1,5 +1,10 @@
 <?
-require('../fpdf/fpdf.php');
+require_once ('../fpdf/fpdf.php');
+require_once '../Controler/RecetaControler.php';
+require_once '../Model/Receta.php';
+require_once '../Model/Ingrediente.php';
+
+
 
 class PDF extends FPDF
 {
@@ -12,6 +17,9 @@ class PDF extends FPDF
       $this->SetFont('Arial','B',12);
 
       $this->Cell(50,0);
+      
+      
+      //TODO TITULO RECETA
       $this->Cell(135,15,'Recetas MGC',1,0,'C');
       
 
@@ -28,24 +36,20 @@ class PDF extends FPDF
 	}
 }
 
-
-//Creación del objeto de la clase heredada
 $pdf=new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Courier','B',24);
 
-$str="Indice de Recetas";
-$str = utf8_decode($str);
 
-$pdf-> SetXY(20,20);
-$pdf->Cell(200,40,$str);
+$receta=new Receta();
 
+$recetaBD = new ReceptaControler();
 
-$pdf-> SetXY(20,40);
-$pdf-> SetFont('Times','',12);
-$pdf ->Cell(40,100,$str);
+$receta= $recetaBD->consultRecetaId(1);
 
+$titulo = $receta -> getNombre();
 
+$pdf -> Cell(50,50,$titulo);
 
 $pdf->Output();
 
