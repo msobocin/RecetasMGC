@@ -1,8 +1,8 @@
-<?
-require_once ('../fpdf/fpdf.php');
-require_once '../Controler/RecetaControler.php';
-require_once '../Model/Receta.php';
-require_once '../Model/Ingrediente.php';
+<?php
+require_once ('fpdf/fpdf.php');
+require_once 'Controler/RecetaControler.php';
+require_once 'Model/Receta.php';
+require_once 'Model/Ingrediente.php';
 
 
 

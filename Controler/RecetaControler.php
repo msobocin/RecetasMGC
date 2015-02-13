@@ -55,6 +55,7 @@ class ReceptaControler extends BD {
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
 			
 			while ( $receta = $result->fetch () ) {
+				echo var_dump($receta);
 				array_push ( $arrReceta, $receta);
 			}
 			

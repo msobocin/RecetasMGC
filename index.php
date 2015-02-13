@@ -8,6 +8,7 @@
 require_once 'Controler/RecetaControler.php';
 require_once 'Model/Receta.php';
 require_once 'Model/Ingrediente.php';
+require_once 'Controler/IngredienteControler.php';
 
 // $ingrediente = new Ingrediente();
 // // $ingrediente2 = new Ingrediente();
@@ -35,5 +36,8 @@ $recetaBD->consult();
 	}
 // }
 
+$ingrediente=new IngredienteControler();
+
+// echo $ingrediente->consultCuantas(1);
 
 ?>
