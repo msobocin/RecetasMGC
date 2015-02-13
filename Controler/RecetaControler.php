@@ -6,7 +6,8 @@
  * @author Carlo
  */
 
-require_once 'controler/BD.php';
+require_once 'Controler/BD.php';
+require_once 'Model/Receta.php';
 
 class ReceptaControler extends BD {
 	public function save($recepta) {
@@ -46,21 +47,39 @@ class ReceptaControler extends BD {
 		return $exito;
 	}
 	public function consult() {
-		$arrReceptas = array ();
+		$arrReceta = array ();
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "Select id as _id, name as _name, country as _country, dob as _dob, dod as _dod FROM authors" );
-			$result->setFetchMode ( PDO::FETCH_CLASS, 'Recepta' );
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _pesonas FROM `platos`" );
+			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
 			
-			while ( $author = $result->fetch () ) {
-				array_push ( $arrReceptas, $recepta );
+			while ( $receta = $result->fetch () ) {
+				array_push ( $arrReceta, $receta);
 			}
 			
 			$this->disconnectBD ();
 		} catch ( Exception $e ) {
 			throw $e;
 		}
-		return $arrReceptas;
+		return $arrReceta;
+	}
+	
+	public function consultRecetaId() {
+		$arrReceta = array ();
+		try {
+			$this->connectBD ();
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _pesonas FROM `platos`" );
+			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
+				
+			while ( $receta = $result->fetch () ) {
+				array_push ( $arrReceta, $receta);
+			}
+				
+			$this->disconnectBD ();
+		} catch ( Exception $e ) {
+			throw $e;
+		}
+		return $arrReceta;
 	}
 }
 

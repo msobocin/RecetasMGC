@@ -5,9 +5,9 @@
  * @author Carlo
  */
 
-// require_once 'Controler/RecetaControler.php';
-// require_once 'Model/Receta.php';
-// require_once 'Model/Ingrediente.php';
+require_once 'Controler/RecetaControler.php';
+require_once 'Model/Receta.php';
+require_once 'Model/Ingrediente.php';
 
 // $ingrediente = new Ingrediente();
 // // $ingrediente2 = new Ingrediente();
@@ -23,7 +23,13 @@
 
 // $receta->setAll(0,"Vodka con Azucar",$arrIngredientes,"Mesclar azucar con vodka!",0,2);
 
-// $recetaBD = new ReceptaControler();
+$recetaBD = new ReceptaControler();
 // $recetaBD->save($receta);
+$arrRecetas=$recetaBD->consult();
+
+foreach ($arrRecetas as $receta) {
+	echo $receta->getNombre();
+}
+
 
 ?>
