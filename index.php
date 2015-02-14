@@ -45,9 +45,9 @@ $ingrediente=new IngredienteControler();
 // echo $ingrediente->consultCuantas(1);
 
 ?>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/chalk.js"></script>
+<script type="text/javascript" src="amcharts/amcharts.js"></script>
+<script type="text/javascript" src="amcharts/pie.js"></script>
+<script type="text/javascript" src="amcharts/themes/chalk.js"></script>
 
 <style>
 @import url(http://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
