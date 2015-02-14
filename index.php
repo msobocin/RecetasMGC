@@ -27,16 +27,18 @@ require_once 'Controler/IngredienteControler.php';
 $recetaBD = new ReceptaControler();
 // $recetaBD->save($receta);
 $arrRecetas=$recetaBD->consultRecetaId(1);
-$recetaBD->consult();
+// $recetaBD->consult();
 
 // foreach ($arrRecetas as $receta) {
-	echo $arrRecetas->getNombre();
+	echo $arrRecetas->getNombre()."<br/>";
 	foreach ($arrRecetas->getIngredientes() as $ingrediente) {
-		echo $ingrediente->getIngrediente();
+		echo $ingrediente->getIngrediente()."<br/>";
 	}
 // }
 
 $ingrediente=new IngredienteControler();
+
+echo $ingrediente->consultCuantas(1);
 
 // echo $ingrediente->consultCuantas(1);
 

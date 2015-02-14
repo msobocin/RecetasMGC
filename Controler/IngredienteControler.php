@@ -13,12 +13,10 @@ class IngredienteControler extends BD {
 		$cuantas = null;
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "SELECT COUNT(id) FROM recetas where id_ingredientes= ".$id );
 			
-			while ( $i = $result->fetch () ) {
-				$cuantas=$i;
-			}
-				
+			$result = $this->_link->query ( "SELECT COUNT(id) as cuantas FROM recetas where id_ingredientes = ".$id );
+			$cuantas=implode(",", $result->fetch (PDO::FETCH_ASSOC));
+			
 			$this->disconnectBD ();
 		} catch ( Exception $e ) {
 			throw $e;

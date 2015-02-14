@@ -51,11 +51,10 @@ class ReceptaControler extends BD {
 		$arrReceta = array ();
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _pesonas FROM `platos`" );
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _personas FROM `platos`" );
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
 			
 			while ( $receta = $result->fetch () ) {
-				echo var_dump($receta);
 				array_push ( $arrReceta, $receta);
 			}
 			
@@ -70,7 +69,7 @@ class ReceptaControler extends BD {
 		$receta=null;
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `preparacion` as _preparacion, `tiempo` as _tiempo, `cuantas_personas` as _pesonas FROM `platos` where id=".$id );
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `preparacion` as _preparacion, `tiempo` as _tiempo, `cuantas_personas` as _personas FROM `platos` where id=".$id );
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
 			$receta = $result->fetch ();
 			
