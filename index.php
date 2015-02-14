@@ -36,6 +36,8 @@ require_once 'Controler/IngredienteControler.php';
 // 	}
 // }
 
+//ejemplo de generar pie chart
+
 $ingrediente=new IngredienteControler();
 
 // echo $ingrediente->consultCuantas(1);
