@@ -11,7 +11,7 @@ class PDF extends FPDF
 	private $_receta;
 	
 	public function setReceta($id) {
-		$recetaBD=new ReceptaControler();
+		$recetaBD=new RecetaControler();
 		$this->_receta=$recetaBD->consultRecetaId($id);
 	}
 	public function getReceta() {

@@ -24,7 +24,7 @@ require_once 'Controler/IngredienteControler.php';
 
 // $receta->setAll(0,"Vodka con Azucar",$arrIngredientes,"Mesclar azucar con vodka!",0,2);
 
-// $recetaBD = new ReceptaControler();
+// $recetaBD = new RecetaControler();
 // $recetaBD->save($receta);
 // $arrRecetas=$recetaBD->consultRecetaId(1);
 // $recetaBD->consult();

@@ -10,23 +10,23 @@ require_once 'Controler/BD.php';
 require_once 'Model/Receta.php';
 require_once 'Model/Ingrediente.php';
 
-class ReceptaControler extends BD {
-	public function save($recepta) {
+class RecetaControler extends BD {
+	public function save($receta) {
 		$exito = false;
 		try {
 			$this->connectBD ();
 			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`descripcion`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_descripcion, :_preparacion, :_tiempo,:_personas)" );
-			$sentencia->bindParam ( ":_nombre", $recepta->getNombre () );
-			$sentencia->bindParam ( ":_preparacion", $recepta->getPreparacion() );
-			$sentencia->bindParam ( ":_tiempo", $recepta->getTiempo() );
-			$sentencia->bindParam(":_personas", $recepta->getPersonas());
+			$sentencia->bindParam ( ":_nombre", $receta->getNombre () );
+			$sentencia->bindParam ( ":_preparacion", $receta->getPreparacion() );
+			$sentencia->bindParam ( ":_tiempo", $receta->getTiempo() );
+			$sentencia->bindParam(":_personas", $receta->getPersonas());
 			
 			if ($sentencia->execute ()) {
 				$exito = true;
 			}
 			$lastIdPlato = $this->_link->lastInsertId();
 			
-			foreach ($recepta->getIngredientes() as $ingrediente) {
+			foreach ($receta->getIngredientes() as $ingrediente) {
 				$sentencia = $this->_link->prepare( "INSERT INTO `recetasmgc`.`recetas` (`id_plato`,`id_ingredientes`,`cantidad`) VALUES (:_id_plato, :_id_ingredientes, :_cantidad)");
 				$sentencia->bindParam ( ":_id_plato", $lastIdPlato );
 				$sentencia->bindParam ( ":_id_ingredientes", $ingrediente->getId() );
