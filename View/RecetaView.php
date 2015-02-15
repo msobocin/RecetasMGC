@@ -17,7 +17,7 @@ class RecetaView {
 		echo '</div>';
 		
 		echo '<div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 ">';
-		echo '<form role="form" id="recetas" action="addRecipe.php">';
+		echo '<form role="form" id="recetas" action="recetas.php">';
 		echo '<table class="table table-hover " width=70%>';
 		echo "<thead>
 			        <tr>
@@ -35,7 +35,8 @@ class RecetaView {
 			echo "<td>" . $fila->getDescripcion () . "</td>";
 			echo "<td>" . $fila->getTiempo () . "</td>";
 			echo "<td>" . $fila->getPersonas () . "</td>";
-			echo '<td><input type="submit" name="enviar" value="ver" ';
+// 			echo '<td><input type="submit" name="enviar" value="ver" ';
+			echo '<td><button type="submit" class="btn btn-default" name="enviar" value="'.$fila->getId().'">Ver</button></td>';
 			echo "</tr>";
 		}
 		echo "</tbody></table>";

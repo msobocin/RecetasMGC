@@ -33,9 +33,8 @@
 					<div class="col-xs-12 col-sm-9 col-md-5 col-lg-5 logo" >
 							<br><br><br><br>
 							
-								<p><a href="addRecipe.php">Ver Recetas</a></p>
+								<p><a href="recetas.php">Ver Recetas</a></p>
 								<p><a href="afegirReceta.php">Añadir Recetas</a></p>
-								<p><a href="generarGrafico.php">Crear Grafico</a></p>
 							
 							<br>
 							<br><br><br><br><br><br><br><br><br><br>
