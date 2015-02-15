@@ -11,7 +11,7 @@ require_once 'Model/Ingrediente.php';
 require_once 'Controler/IngredienteControler.php';
 
 // $ingrediente = new Ingrediente();
-// // $ingrediente2 = new Ingrediente();
+// $ingrediente2 = new Ingrediente();
 // $receta = new Receta();
 
 // $ingrediente->setAll(1,"Azucar","kg/kgs","3/4");

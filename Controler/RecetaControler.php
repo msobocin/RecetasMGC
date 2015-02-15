@@ -17,6 +17,7 @@ class RecetaControler extends BD {
 			$this->connectBD ();
 			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`descripcion`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_descripcion, :_preparacion, :_tiempo,:_personas)" );
 			$sentencia->bindParam ( ":_nombre", $receta->getNombre () );
+			$sentencia->bindParam ( ":_descripcion", $receta->getDescripcion() );
 			$sentencia->bindParam ( ":_preparacion", $receta->getPreparacion() );
 			$sentencia->bindParam ( ":_tiempo", $receta->getTiempo() );
 			$sentencia->bindParam(":_personas", $receta->getPersonas());
