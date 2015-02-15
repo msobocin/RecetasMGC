@@ -1,94 +1,55 @@
-<?php 
-/**
- * @author Michal
- * @author Grace
- * @author Carlo
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recetas MGC</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/main.css">
+<link href='http://fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	
+	<div class="container-fluid">
 
-require_once 'Controler/RecetaControler.php';
-require_once 'Model/Receta.php';
-require_once 'Model/Ingrediente.php';
-require_once 'Controler/IngredienteControler.php';
+		<div class="row color9">
+			<div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 logo">
+				<div>
+					<img src="img/logo.png" alt="">
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-9 col-md-4 col-lg-4 logo">
+				
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-9 col-md-4 col-lg-4 logo">
+					<p></p>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 logo" style="background-image:url(img/cocinero.png); background-repeat: no-repeat;">
+					
+					<div class="col-xs-12 col-sm-9 col-md-5 col-lg-5 logo" >
+							<br><br><br><br>
+							
+								<p><a href="addRecipe.php">Ver Recetas</a></p>
+								<p><a href="afegirReceta.php">Añadir Recetas</a></p>
+								<p><a href="generarGrafico.php">Crear Grafico</a></p>
+							
+							<br>
+							<br><br><br><br><br><br><br><br><br><br>
+					</div>
+					<div class="col-xs-12 col-sm-9 col-md-7 col-lg-7 logo">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 
-// $ingrediente = new Ingrediente();
-// $ingrediente2 = new Ingrediente();
-// $receta = new Receta();
-
-// $ingrediente->setAll(1,"Azucar","kg/kgs","3/4");
-
-// $arrIngredientes = array();
-// array_push($arrIngredientes,clone $ingrediente);
-
-// $ingrediente->setAll(2,"Vodka","litro/s","5");
-// array_push($arrIngredientes,clone $ingrediente);
-
-// $receta->setAll(0,"Vodka con Azucar",$arrIngredientes,"Mesclar azucar con vodka!",0,2);
-
-// $recetaBD = new RecetaControler();
-// $recetaBD->save($receta);
-// $arrRecetas=$recetaBD->consultRecetaId(1);
-// $recetaBD->consult();
-
-// foreach ($arrRecetas as $receta) {
-// 	echo $arrRecetas->getNombre()."<br/>";
-// 	foreach ($arrRecetas->getIngredientes() as $ingrediente) {
-// 		echo $ingrediente->getIngrediente()."<br/>";
-// 	}
-// }
-
-//ejemplo de generar pie chart
-
-$ingrediente=new IngredienteControler();
-
-// echo $ingrediente->consultCuantas(1);
-
-// echo $ingrediente->consultCuantas(1);
-
-?>
-<script type="text/javascript" src="amcharts/amcharts.js"></script>
-<script type="text/javascript" src="amcharts/pie.js"></script>
-<script type="text/javascript" src="amcharts/themes/chalk.js"></script>
-
-<style>
-@import url(http://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
-#chartdiv {	
-	width		: 100%;
-	height		: 500px;
-	font-size	: 11px;
-}
-</style>
-
-<div id="chartdiv"></div>	
-
-<?php 
-echo "<script>";
-echo 'var chart = AmCharts.makeChart("chartdiv", {
-    "type": "pie",	
-	"theme": "none",
-    "legend": {
-        "markerType": "circle",
-        "position": "right",
-		"marginRight": 80,		
-		"autoMargins": false
-    },
-    "dataProvider": [{
-        "cuantos": "Leche",
-        "ingrediente": '.$ingrediente->consultCuantas(1).'
-    }, {
-        "cuantos": "Arroz",
-        "ingrediente": '.$ingrediente->consultCuantas(2).'
-    }],
-    "valueField": "ingrediente",
-    "titleField": "cuantos",
-    "balloonText": "[[title]]<br><span style=\'font-size:14px\'><b>[[value]]</b> ([[percents]]%)</span>",
-    "exportConfig": {
-        "menuTop":"0px",
-        "menuItems": [{
-            "icon": \'/lib/3/images/export.png\',
-            "format": \'png\'
-        }]
-    }
-});';
-echo "</script>";
-
-?>
+	
+</body>
+</html>
+<!-- style="background-image:url(img/cocinero.png); background-repeat: no-repeat;" -->
