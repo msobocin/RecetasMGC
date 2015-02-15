@@ -36,7 +36,7 @@ class RecetaView {
 			echo "<td>" . $fila->getTiempo () . "</td>";
 			echo "<td>" . $fila->getPersonas () . "</td>";
 // 			echo '<td><input type="submit" name="enviar" value="ver" ';
-			echo '<td><button type="submit" class="btn btn-default" name="enviar" value="'.$fila->getId().'">Ver</button></td>';
+			echo '<td><button type="submit" class="btn btn-default" name="receta" value="'.$fila->getId().'">Ver</button></td>';
 			echo "</tr>";
 		}
 		echo "</tbody></table>";

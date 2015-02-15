@@ -13,9 +13,12 @@ head();
 
 		$recetaControl = new RecetaControler ();
 		$recetas = $recetaControl->consult ();
-		
-		$recetaView = new RecetaView();
-		$recetaView->view($recetas);
+		if (isset($_REQUEST['receta'])) {
+			echo "la receta";
+		}else{
+			$recetaView = new RecetaView();
+			$recetaView->view($recetas);
+		}
  footer();             
 
 ?>
