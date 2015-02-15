@@ -14,8 +14,10 @@ head();
 		$recetaControl = new RecetaControler ();
 		$recetas = $recetaControl->consult ();
 		if (isset($_REQUEST['receta'])) {
+			$receta = $recetaControl->consultRecetaId($_REQUEST['receta']);
 			echo "la receta";
 		}else{
+			$recetas = $recetaControl->consult ();
 			$recetaView = new RecetaView();
 			$recetaView->view($recetas);
 		}
