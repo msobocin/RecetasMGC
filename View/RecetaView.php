@@ -91,7 +91,7 @@ class RecetaView {
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-3 col-sm-offset-6">
+			<div class="col-sm-3 col-sm-offset-8">
 			<?php 
 			
 			echo '<a class="btn btn-default" href="generarpdf.php?id='.$receta->getId().'" role="button"  target="_blank">Descgarga como PDF</a>';

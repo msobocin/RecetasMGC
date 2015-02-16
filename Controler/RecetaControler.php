@@ -33,7 +33,6 @@ class RecetaControler extends BD {
 				$sentencia->bindParam ( ":_id_plato", $lastIdPlato );
 				$sentencia->bindParam ( ":_id_ingredientes", $ingrediente->getId() );
 				$sentencia->bindParam ( ":_cantidad", $ingrediente->getCantidad() );
-				echo "cantidad: ".$ingrediente->getCantidad();
 				
 				if ($sentencia->execute ()) {
 					$exito = true;
