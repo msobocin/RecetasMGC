@@ -22,13 +22,13 @@ class PDF extends FPDF
 	function Header()
 	{
 	    // Logo
-	    $this->Image('images/logo.png',10,6,30);
+	    $this->Image('img/logo.png',10,5,70);
 	    // Arial bold 15
 	    $this->SetFont('Arial','B',15);
 	    // Move to the right
 	    $this->Cell(70);
 	    // Title
-	    $this->Cell(50,10,$this->_receta->getNombre(),1,0,'C');
+	    $this->Cell(110,15,$this->_receta->getNombre(),1,0,'C');
 	    // Line break
 	    $this->Ln(20);
 	}
@@ -47,20 +47,54 @@ class PDF extends FPDF
 
 // Instanciation of inherited class
 $pdf = new PDF();
-$pdf->setReceta(1);
+
+//Recoger ID de la receta a mostrar
+$recetaid=$_REQUEST['id'];
+
+$pdf->setReceta($recetaid);
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','b',14);
+
 $receta = $pdf->getReceta();
-$pdf->Cell(0,10,"Descripcion",0,1);
+
+$pdf->Cell(180,10,"Descripcion",1,1,"C");
 $pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$receta->getDescripcion(),0,1);
+$pdf->MultiCell(180,10,$receta->getDescripcion(),1,1);
 $pdf->SetFont('Times','b',14);
-$pdf->Cell(0,10,"Preparacion",0,1);
+
+$pdf->Ln(10);
+
+$pdf->Cell(180,10,"Ingredientes",1,1,"C");
 $pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$receta->getPreparacion(),0,1);
+//Printar ingredientes
+foreach ($receta->getIngredientes() as $ingrediente) {
+	
+	$pdf->Cell(180,10,"              -".$ingrediente->getIngrediente().": ".$ingrediente->getCantidad()." ".$ingrediente->getUnidad(),2,1); 
+}
+
+$pdf->SetFont('Times','b',14);
+
+$pdf->Ln(10);
+
+$pdf->Cell(180,10,"Preparacion",1,1,"C");
+$pdf->SetFont('Times','',12);
+$pdf->MultiCell(180,10,$receta->getPreparacion(),1,1);
 // for($i=1;$i<=40;$i++)
 //     $pdf->Cell(0,10,'Printing line number '.$i,0,1);
-$pdf->Output();
 
+$pdf->Ln(10);
+$pdf->SetFont('Times','b',14);
+
+$pdf->Cell(90,10,"Tiempo",1,0,"C");
+$receta = $pdf->getReceta();
+$pdf->Cell(90,10,"Comensales",1,1,"C");
+$pdf->SetFont('Times','',12);
+$pdf->Cell(90,10,$receta->getTiempo()." Horas",0,0,"C");
+$pdf->SetFont('Times','',12);
+$pdf->Cell(90,10,$receta->getPersonas()." Personas",0,1,"C");
+
+
+
+$pdf->Output();
 ?> 

@@ -34,7 +34,7 @@
 							<br><br><br><br>
 							
 								<p><a href="recetas.php">Ver Recetas</a></p>
-								<p><a href="afegirReceta.php">Añadir Recetas</a></p>
+								<p><a href="addReceta.php">Añadir Recetas</a></p>
 							
 							<br>
 							<br><br><br><br><br><br><br><br><br><br>

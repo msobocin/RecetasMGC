@@ -15,12 +15,13 @@ class RecetaControler extends BD {
 		$exito = false;
 		try {
 			$this->connectBD ();
-			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`descripcion`,`preparacion`,`tiempo`,`cuantas_personas`) VALUES (:_nombre, :_descripcion, :_preparacion, :_tiempo,:_personas)" );
+			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`descripcion`,`preparacion`,`tiempo`,`cuantas_personas`,`imagen`) VALUES (:_nombre, :_descripcion, :_preparacion, :_tiempo,:_personas, :_imagen)" );
 			$sentencia->bindParam ( ":_nombre", $receta->getNombre () );
 			$sentencia->bindParam ( ":_descripcion", $receta->getDescripcion() );
 			$sentencia->bindParam ( ":_preparacion", $receta->getPreparacion() );
 			$sentencia->bindParam ( ":_tiempo", $receta->getTiempo() );
 			$sentencia->bindParam(":_personas", $receta->getPersonas());
+			$sentencia->bindParam(":_imagen", $receta->getImagen(),PDO::PARAM_LOB);
 			
 			if ($sentencia->execute ()) {
 				$exito = true;
@@ -52,8 +53,9 @@ class RecetaControler extends BD {
 		$arrReceta = array ();
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _personas FROM `platos`" );
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `tiempo` as _tiempo, `cuantas_personas` as _personas, `imagen` as _imagen FROM `platos`" );
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
+			
 			
 			while ( $receta = $result->fetch () ) {
 				array_push ( $arrReceta, $receta);
@@ -70,7 +72,7 @@ class RecetaControler extends BD {
 		$receta=null;
 		try {
 			$this->connectBD ();
-			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `preparacion` as _preparacion, `tiempo` as _tiempo, `cuantas_personas` as _personas FROM `platos` where id=".$id );
+			$result = $this->_link->query ( "SELECT `id` as _id, `nombre` as _nombre, `descripcion` as _descripcion, `preparacion` as _preparacion, `tiempo` as _tiempo, `cuantas_personas` as _personas, `imagen` as _imagen FROM `platos` where id=".$id );
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'Receta' );
 			$receta = $result->fetch ();
 			

@@ -12,13 +12,13 @@ require_once 'View/RecetaView.php';
 head();
 
 		$recetaControl = new RecetaControler ();
+		$recetaView = new RecetaView();
 		$recetas = $recetaControl->consult ();
 		if (isset($_REQUEST['receta'])) {
 			$receta = $recetaControl->consultRecetaId($_REQUEST['receta']);
-			echo "la receta";
+			$recetaView->viewReceta($receta);
 		}else{
 			$recetas = $recetaControl->consult ();
-			$recetaView = new RecetaView();
 			$recetaView->view($recetas);
 		}
  footer();             

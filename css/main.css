@@ -40,15 +40,15 @@ div h3{
 	color:#008080;
 	font-family: 'Dancing Script', cursive;
 	}	
- div h2{
- 	color: #400080;
- 	font-family: 'Dancing Script', cursive;
- }
-  div h1{
- 	color: #400080;
- 	font-family: 'Dancing Script', cursive;
- 	font-size: 3.5em;
- }
+div h2{
+	color: #400080;
+	font-family: 'Dancing Script', cursive;
+}
+ div h1{
+	color: #400080;
+	font-family: 'Dancing Script', cursive;
+	font-size: 3.5em;
+}
 
 .alto{
 	max-height: 500px;
