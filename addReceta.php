@@ -36,7 +36,7 @@ if (isset($_REQUEST['enviar'])) {
 }
 ?>
 	<div class="container-fluid">
-		<form class="form-horizontal col-sm-8 col-sm-offset-2" action="addReceta.php" enctype="multipart/form-data">
+		<form role="form" enctype="multipart/form-data" method="post" class="form-horizontal col-sm-8 col-sm-offset-2" action="addReceta.php">
 		<p><center><h3>Cree su propia Receta ¡¡</h3><center></p>
 		<div class="form-group">
     <label for="imagen">Imagen</label>
