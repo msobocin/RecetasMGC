@@ -12,7 +12,10 @@ require_once 'Model/Ingrediente.php';
 
 class RecetaControler extends BD {
 	public function save($receta) {
-		$exito = false;
+		$exito = array(
+			    "succes" => false,
+			    "id" => 0,
+				);
 		try {
 			$this->connectBD ();
 			$sentencia = $this->_link->prepare ( "INSERT INTO `recetasmgc`.`platos` (`nombre`,`descripcion`,`preparacion`,`tiempo`,`cuantas_personas`,`imagen`) VALUES (:_nombre, :_descripcion, :_preparacion, :_tiempo,:_personas, :_imagen)" );
@@ -24,7 +27,7 @@ class RecetaControler extends BD {
 			$sentencia->bindParam(":_imagen", $receta->getImagen(),PDO::PARAM_LOB);
 			
 			if ($sentencia->execute ()) {
-				$exito = true;
+				$exito['succes'] = true;
 			}
 			$lastIdPlato = $this->_link->lastInsertId();
 			
@@ -35,14 +38,15 @@ class RecetaControler extends BD {
 				$sentencia->bindParam ( ":_cantidad", $ingrediente->getCantidad() );
 				
 				if ($sentencia->execute ()) {
-					$exito = true;
+					$exito['succes'] = true;
+					$exito['id']=$lastIdPlato;
 				}
 			}
 			
 			
 			$this->disconnectBD ();
 		} catch ( PDOException $e ) {
-			$exito=false;
+			$exito['succes'] = false;
 			throw $e;
 		}
 		

@@ -17,6 +17,10 @@ head();
 
 $receta=new Receta();
 $ingrediente=new Ingrediente();
+$exito = array(
+			    "succes" => false,
+			    "id" => 0,
+				);
 
 if (isset($_REQUEST['enviar'])) {
 	
@@ -30,13 +34,19 @@ if (isset($_REQUEST['enviar'])) {
 	$receta->setAll(0,$_REQUEST['nom'],$_REQUEST['descripcion'],$arrIngredientes,$_REQUEST['preparacion'],$_REQUEST['tiempo'],$_REQUEST['personas'],$imagen);
 	
 	$recetaControler = new RecetaControler();
-	$recetaControler->save($receta);
+	$exito=$recetaControler->save($receta);
 	
 
 }
 ?>
 	<div class="container-fluid">
 		<form role="form" enctype="multipart/form-data" method="post" class="form-horizontal col-sm-8 col-sm-offset-2" action="addReceta.php">
+		<?php 
+		if (isset($_REQUEST['enviar']) && $exito['succes']) {
+			echo "<p>Receta añadida correctamente!</p>";
+			echo "<p>Puedes ver su receta <a href='recetas.php?receta=".$exito['id']."'>Aqui</a></p>";
+		}
+		?>
 		<p><center><h3>Cree su propia Receta ¡¡</h3><center></p>
 		<div class="form-group">
     <label for="imagen">Imagen</label>
