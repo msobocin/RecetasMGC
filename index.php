@@ -16,7 +16,7 @@
 		<div class="row color9">
 			<div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 logo">
 				<div>
-					<img src="img/logo.png" alt="">
+					<a href="index.php"><img src="img/logo.png" alt=""></a>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-9 col-md-4 col-lg-4 logo">
@@ -36,6 +36,7 @@
 								<p><a href="recetas.php">Ver Recetas</a></p>
 								<p><a href="addReceta.php">Añadir Recetas</a></p>
 							
+							<!-- Tan negro -->
 							<br>
 							<br><br><br><br><br><br><br><br><br><br>
 					</div>

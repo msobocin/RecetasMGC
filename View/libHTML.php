@@ -19,7 +19,7 @@ function head() {
 	<div class="container-fluid">
 	 	<div class="row color9">
 			<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 logo">
-				<img src="img/logo.png" alt="">
+				<a href="index.php"><img src="img/logo.png" alt=""></a>
 			</div>
 
 			<div class="col-xs-12 col-sm-9 col-md-4 col-lg-4 centraLogo">
@@ -29,7 +29,7 @@ function head() {
 				
 			</div>
 			<div class="col-xs-12 col-sm-9 col-md-2 col-lg-2 inicio">
-				<a href="index.php">Inicio</a>
+				
 			</div>
 	   </div>
 	 </header>
