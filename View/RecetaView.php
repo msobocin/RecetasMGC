@@ -86,8 +86,26 @@ class RecetaView {
 		</div>
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
+				<h3>Descripcion:</h3>
+				<p><?php echo $receta->getDescripcion(); ?></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
 				<h3>Preparacion:</h3>
 				<p><?php echo $receta->getPreparacion(); ?></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<h3>Tiempo:</h3>
+				<p><?php echo $receta->getTiempo(); ?> horas</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<h3>Comensales:</h3>
+				<p><?php echo $receta->getPersonas(); ?> personas</p>
 			</div>
 		</div>
 		<div class="row">
@@ -163,7 +181,7 @@ echo 'var chart = AmCharts.makeChart("chartdiv", {
         }]
     }
 });';
-    echo 'chart.addTitle("Tenemos mas recetas con estos ingredientes");';
+    echo 'chart.addTitle("Cantidad de recetas que utilizan estos ingredientes:");';
 echo "</script>";
 		
 		
