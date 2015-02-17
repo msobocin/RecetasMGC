@@ -11,34 +11,7 @@ function head() {
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/main.css">
 <link href='http://fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet' type='text/css'>
-<script>
-function loadXMLDoc(receta)
-{
 
-	var xmlhttp;
-	var txt,x,xx,i;
-	if (window.XMLHttpRequest)
-	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else
-	{// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			document.getElementById('info').innerHTML=xmlhttp.responseText;
-		}else{
-			document.getElementById('info').innerHTML;
-		}
-	}
-	xmlhttp.open("GET","controlReceta.php?receta="+receta,true);
-	xmlhttp.send();
-
-}
-</script>
 </head>
 
 <body>

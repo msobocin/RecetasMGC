@@ -28,7 +28,7 @@ class PDF extends FPDF
 	    // Move to the right
 	    $this->Cell(70);
 	    // Title
-	    $this->Cell(110,15,$this->_receta->getNombre(),1,0,'C');
+	    $this->Cell(110,15,utf8_decode($this->_receta->getNombre()),1,0,'C');
 	    // Line break
 	    $this->Ln(20);
 	}
@@ -60,7 +60,7 @@ $receta = $pdf->getReceta();
 
 $pdf->Cell(180,10,"Descripcion",1,1,"C");
 $pdf->SetFont('Times','',12);
-$pdf->MultiCell(180,10,$receta->getDescripcion(),1,1);
+$pdf->MultiCell(180,10,utf8_decode($receta->getDescripcion()),1,1);
 $pdf->SetFont('Times','b',14);
 
 $pdf->Ln(10);
@@ -70,7 +70,7 @@ $pdf->SetFont('Times','',12);
 //Printar ingredientes
 foreach ($receta->getIngredientes() as $ingrediente) {
 	
-	$pdf->Cell(180,10,"              -".$ingrediente->getIngrediente().": ".$ingrediente->getCantidad()." ".$ingrediente->getUnidad(),2,1); 
+	$pdf->Cell(180,10,"              -".utf8_decode($ingrediente->getIngrediente()).": ".$ingrediente->getCantidad()." ".$ingrediente->getUnidad(),2,1); 
 }
 
 $pdf->SetFont('Times','b',14);
@@ -79,7 +79,7 @@ $pdf->Ln(10);
 
 $pdf->Cell(180,10,"Preparacion",1,1,"C");
 $pdf->SetFont('Times','',12);
-$pdf->MultiCell(180,10,$receta->getPreparacion(),1,1);
+$pdf->MultiCell(180,10,utf8_decode($receta->getPreparacion()),1,1);
 // for($i=1;$i<=40;$i++)
 //     $pdf->Cell(0,10,'Printing line number '.$i,0,1);
 
