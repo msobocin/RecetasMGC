@@ -71,7 +71,7 @@ class RecetaView {
 				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($receta->getImagen()).'" class="img-responsive" alt="'.$receta->getNombre().'" width=400/>'; ?>
 			</div>
 			<div class="col-sm-6">
-				<h3>Ingredientes:</h3>
+				<h3>Ingredientes para <?php echo $receta->getPersonas();?> personas:</h3>
 				<ul>
 				<?php 
 				foreach ($receta->getIngredientes() as $ingrediente) {
